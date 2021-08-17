@@ -8,7 +8,7 @@ def main():
 def players_turn():
     data = {'1':'1', '2':'2', '3':'3', '4':'4', '5':'5', '6':'6', '7':'7', '8':'8', '9':'9'}
     ANS = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-    player = '✘'
+    player = 'X'
     ans = '0'
     change_grid(data, ans, player)
     while grid_available(data, ANS):
@@ -17,17 +17,17 @@ def players_turn():
         change_grid(data, ans, player)
         if someone_wins(data):
             return player
-        if player == '✘':
-            player = '◎'
+        if player == 'X':
+            player = 'O'
         else:
-            player = '✘'
+            player = 'X'
     player = 0
     return player
 
 def winner(player):
     if player != 0:
         print("")
-        print("Player " + player + " wins🎉🎉🎉!")
+        print("Player " + player + " wins! :)")
     else:
         print("")
         print("Game over! Nobody wins :(")
@@ -66,7 +66,7 @@ def check_valid(ans, ANS, data):
     while True:
         if ans not in ANS:
             ans = input("Invalid position! Try again: ")
-        elif data[ans] == '◎' or data[ans] == '✘':
+        elif data[ans] == 'O' or data[ans] == 'X':
             ans = input("Occupied position! Try again: ")
         else:
             return ans
